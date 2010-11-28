@@ -1,8 +1,8 @@
-= gem-open
+# gem-open
 
 gem-open opens the source directory of the given gem.
 
-== Examples
+## Examples
 
 To open the directory of the latest version of the given gem.
 
