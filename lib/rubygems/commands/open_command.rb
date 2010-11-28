@@ -28,7 +28,10 @@ class Gem::Commands::OpenCommand < Gem::Command
 
   def find_editor # :nodoc:
     ENV.values_at(*%w(GEM_EDITOR VISUAL EDITOR)).find{|e| !e.nil? && !e.empty?}.tap do |editor|
-      alert_error 'To open a gem, set $EDITOR or $GEM_EDITOR' unless editor
+      unless editor
+        alert_error 'To open a gem, set $EDITOR or $GEM_EDITOR'
+        terminate_interaction 1
+      end
     end
   end
 
